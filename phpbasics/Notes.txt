@@ -1,0 +1,64 @@
+### Notes
+
+==     compare value '1'==1 true
+====   compare type  '1'===1 false
+
+
+
+
+MySql BAsic Queries
+
+##SAMPLE TABLES
+users
+-user_id
+-fname
+-lname
+-email
+
+post
+- user_id
+- post_title
+- post_content
+- date
+
+
+
+
+
+#SELECT
+	SELECT `fname`, `lname` FROM `users` WHERE `fname`='leonil';
+#INSERT
+	INSERT INTO `users` (`fname`,`lname`,`email`) VALUES ('Jezzet','Rodriguez','jyrodriguez@yahoo.com.ph');
+
+#UPDATE
+	UPDATE `users` SET `fname` = 'changefname' WHERE `fname` = 'leonil';
+#DELETE
+	DELETE FROM `users` WHERE `fname` = 'leonil'
+
+
+#INNER JOIN -  when the results where in both table
+
+SELECT 
+	`post`.`post_title`,
+	`post`.`post_content`,
+	`users`.`fname`,
+	`users`.`lname`,
+FROM `users`
+INNER JOIN `post`
+ON `users`.`user_id`= 	`post`.`user_id`;
+
+
+
+#left join - always return all the rows on the left table
+
+SELECT 
+	`post`.`post_title`,
+	`post`.`post_content`,
+	`users`.`fname`,
+	`users`.`lname`,
+FROM `users`
+LEFT JOIN `post`
+ON `users`.`user_id`= 	`post`.`user_id`;
+
+
+#Righ JOIN -always return all the rows on the right table
